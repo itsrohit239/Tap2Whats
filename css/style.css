@@ -158,16 +158,24 @@ body {
   width: 100%;
   text-align: center;
 }
-.footer a {
-  color: #888;
-  margin: 0 15px;
-  font-size: 1.5rem;
-  transition: color 0.3s;
-}
-.footer a:hover {
-  color: #333;
-}
-.qr-preview {
+  .footer a {
+    color: #888;
+    margin: 0 15px;
+    font-size: 2.2rem; /* Increased size */
+    transition: color 0.3s, transform 0.3s;
+  }
+  .footer a:hover {
+    transform: scale(1.2); /* Highlight on hover */
+  }
+  .github-icon {
+    color: #333; /* GitHub color */
+  }
+  .instagram-icon {
+    color: #c135in84; /* Instagram color */
+  }
+  .whatsapp-icon {
+    color: #25d366; /* WhatsApp color */
+  }.qr-preview {
   display: flex;
   align-items: center;
   justify-content: center;
