@@ -20,6 +20,23 @@ document.addEventListener("DOMContentLoaded", function () {
     { name: "France", code: "33" },
   ];
 
+  const messageTemplates = [
+    "Hello! I have a question.",
+    "Can you please send me the details?",
+    "I'm interested in your product.",
+    "What are your business hours?",
+  ];
+
+  function populateMessageTemplates() {
+    const messageTemplatesSelect = document.getElementById("messageTemplates");
+    messageTemplates.forEach((template) => {
+      const opt = document.createElement("option");
+      opt.value = template;
+      opt.textContent = template;
+      messageTemplatesSelect.appendChild(opt);
+    });
+  }
+
   function populateCountryCodes() {
     countries.forEach((c) => {
       const opt = document.createElement("option");
@@ -213,10 +230,19 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderRecentList() {
     const container = document.getElementById("recentList");
     if (!container) return;
+
+    // Clear only the dynamically added list items, preserve the heading and clear button
+    const existingList = container.querySelector(".list-group");
+    if (existingList) {
+      existingList.remove();
+    }
+
     const items = loadRecent();
-    container.innerHTML = "";
     if (!items.length) {
-      container.innerHTML = '<div class="text-muted">No recent numbers</div>';
+      const noRecent = document.createElement("div");
+      noRecent.className = "text-muted";
+      noRecent.textContent = "No recent numbers";
+      container.appendChild(noRecent);
       return;
     }
     const ul = document.createElement("div");
@@ -259,11 +285,49 @@ document.addEventListener("DOMContentLoaded", function () {
   populateCountryCodes();
   clearQrPreview();
   renderRecentList();
+  populateMessageTemplates();
+
+  const messageTemplatesSelect = document.getElementById("messageTemplates");
+  messageTemplatesSelect.addEventListener("change", function () {
+    messageInput.value = this.value;
+  });
 
   sendBtn.addEventListener("click", sendMessage);
   generateQrBtn.addEventListener("click", generateQr);
   downloadQrBtn.addEventListener("click", downloadQr);
   copyLinkBtn.addEventListener("click", copyLink);
+
+  const shareLinkBtn = document.getElementById("shareLinkBtn");
+  if (navigator.share) {
+    shareLinkBtn.classList.remove("d-none");
+    shareLinkBtn.addEventListener("click", async () => {
+      const selectedCode = countrySelect.value || "91";
+      const normalized = normalizeNumber(selectedCode, mobileInput.value.trim());
+      if (!validateNumber(normalized)) {
+        setError("Please insert a valid mobile number to share the link.");
+        return;
+      }
+      const url = buildWhatsappUrl(normalized, messageInput.value.trim());
+      try {
+        await navigator.share({
+          title: document.title,
+          url: url,
+        });
+        setSuccess("Link shared successfully!");
+      } catch (error) {
+        console.error("Error sharing:", error);
+        setError("Failed to share link.");
+      }
+    });
+  }
+
+  const clearRecentBtn = document.getElementById("clearRecentBtn");
+  if (clearRecentBtn) {
+    clearRecentBtn.addEventListener("click", function () {
+      localStorage.removeItem(RECENT_KEY);
+      renderRecentList();
+    });
+  }
 
   mobileInput.addEventListener("keypress", function (e) {
     if (e.key === "Enter") sendMessage();
