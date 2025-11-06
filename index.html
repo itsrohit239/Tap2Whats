@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Direct</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="theme-color" content="#25D366" />
+  </head>
+    <div class="gradient-bg"></div>
+    <div class="blur-overlay"></div>
+    <div
+      class="container d-flex justify-content-center align-items-center min-vh-100"
+    >
+      <div class="center-card">
+        <h1>Tap2Whats</h1>
+        <p>
+          No need to save contacts. Enter the number, pick a country code, write
+          a message, or generate a QR.
+        </p>
+
+        <div
+          id="dynamicIsland"
+          class="dynamic-island"
+          role="button"
+          tabindex="0"
+        >
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          <span>Start a Conversation</span>
+        </div>
+
+        <div id="formContent" class="form-content">
+          <label for="countryCode" class="form-label">Country</label>
+          <div class="d-flex gap-2">
+            <select
+              id="countryCode"
+              class="form-control"
+              style="max-width: 130px"
+            ></select>
+            <input
+              type="tel"
+              id="mobileNumber"
+              class="form-control"
+              placeholder="Phone number (without country code)"
+              inputmode="tel"
+              aria-label="Phone number"
+            />
+          </div>
+
+          <label for="customMessage" class="form-label"
+            >Message (Optional)</label
+          >
+          <textarea
+            id="customMessage"
+            class="form-control"
+            placeholder="Write your message here..."
+            rows="2"
+          ></textarea>
+
+          <div class="d-grid gap-2 mt-2">
+            <button id="sendBtn" class="btn btn-whatsapp">
+              <i class="fab fa-whatsapp"></i> Send
+            </button>
+            <div class="d-flex gap-2">
+              <button
+                id="generateQrBtn"
+                class="btn btn-outline-primary flex-fill"
+              >
+                <i class="fas fa-qrcode"></i> Generate QR
+              </button>
+              <button
+                id="downloadQrBtn"
+                class="btn btn-outline-success"
+                disabled
+              >
+                <i class="fas fa-download"></i> Download PNG
+              </button>
+            </div>
+            <div
+              id="errorMsg"
+              class="form-text text-danger d-none"
+              role="alert"
+              aria-live="assertive">
+            </div>
+            <button id="copyLinkBtn" class="btn btn-secondary">
+              <i class="fas fa-link"></i> Copy Link
+            </button>
+          </div>
+
+          <div id="qrPreview" class="qr-preview mt-3" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <div class="footer">
+      <a
+        href="https://github.com/itsrohit239"
+        target="_blank"
+        aria-label="GitHub"
+        ><i class="fab fa-github"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/_its_rohit_239"
+        target="_blank"
+        aria-label="Instagram"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a
+        href="https://api.whatsapp.com/send?phone=8160038705&text=Hii"
+        target="_blank"
+        aria-label="WhatsApp"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
+    </div>
+  </body>
+</html>
