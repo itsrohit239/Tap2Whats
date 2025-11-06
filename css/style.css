@@ -172,6 +172,15 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
 @media (max-width: 500px) {
   .center-card {
     padding: 1.5rem 1rem;
