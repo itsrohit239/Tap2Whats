@@ -16,8 +16,7 @@ Tired of saving numbers just for a **one-time WhatsApp message**? **Tap2Whats** 
 
 Experience the simplicity right now!
 
-**[Launch Tap2Whats Demo Here!]** 
-[https://your-live-app-link-here.com](https://itsrohit239.github.io/Tap2Whats/)
+[Launch Tap2Whats Demo Here! ](https://itsrohit239.github.io/Tap2Whats/)
 
 Distributed under the **MIT License**. See `LICENSE` for more information.
 
