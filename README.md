@@ -1,4 +1,4 @@
-# 📲 Tap2Whats: Chat Instantly. Contacts Stay Clean.
+# 📲 Tap2Whats: Chat Instantly.
 
 [![GitHub license](https://img.shields.io/github/license/itsrohit239/Tap2Whats?style=flat-square&color=3498db)](LICENSE)
 
