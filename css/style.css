@@ -168,14 +168,18 @@ body {
     transform: scale(1.2); /* Highlight on hover */
   }
   .github-icon {
-    color: #333; /* GitHub color */
+    color: #1b191b;
   }
   .instagram-icon {
-    color: #c135in84; /* Instagram color */
+    color: #ce50da;
   }
   .whatsapp-icon {
-    color: #25d366; /* WhatsApp color */
-  }.qr-preview {
+    color: #59e247; 
+  }
+  .snapchat-icon {
+    color: #e6d43a;
+  }
+  .qr-preview {
   display: flex;
   align-items: center;
   justify-content: center;
