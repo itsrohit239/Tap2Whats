@@ -150,8 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const img = document.createElement("img");
     img.src = qr.toDataURL("image/png");
     img.alt = "WhatsApp QR code";
-    img.style.width = "100%";
-    img.style.maxWidth = "300px";
+    img.style.width = "120px";
+    img.style.maxWidth = "120px";
     qrPreview.appendChild(img);
     lastQrDataUrl = qr.toDataURL("image/png");
     downloadQrBtn.disabled = false;
