@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function buildWhatsappUrl(fullNumber, message) {
-    const encoded = encodeURIComponent(message || "Hi");
+    const encoded = encodeURIComponent(message || "Hello");
     return `https://wa.me/${fullNumber}?text=${encoded}`;
   }
 
